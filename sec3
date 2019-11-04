@@ -16,5 +16,10 @@ f
 g = df.groupby('BORO')['INCIDENT_KEY'].count()
 g
 
+#plot 1
 plt.figure(figsize=(12, 4))
 a = sns.boxplot(df.BORO, f)
+
+# plot 2
+plt.figure(figsize=(12, 4))
+a = sns.boxplot(df.PERP_RACE, f)
