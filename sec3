@@ -1,0 +1,20 @@
+%matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv ("NYPD_Shooting_Incident_Data__Historic_.csv")
+df.shape
+
+df['year'] = pd.DatetimeIndex(df['OCCUR_DATE']).year
+df.head()
+
+f = df.groupby('year')['INCIDENT_KEY'].count()
+f
+
+g = df.groupby('BORO')['INCIDENT_KEY'].count()
+g
+
+plt.figure(figsize=(12, 4))
+a = sns.boxplot(df.BORO, f)
